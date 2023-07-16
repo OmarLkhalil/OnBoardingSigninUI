@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:text="Reset Password"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="we sent you a 6 digits code sms to your number"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        />
+
+    <com.fraggjkee.smsconfirmationview.SmsConfirmationView
+        android:id="@+id/sms_code_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:scv_codeLength="6"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        app:scv_symbolBorderColor="@color/redw"
+        app:scv_symbolBackgroundColor="@color/ivory"
+        app:scv_symbolBorderActiveColor="@color/redrose"
+        app:scv_smsDetectionMode="auto"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/red"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="Return to login"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/return_login_resetpassword"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textSize="20sp">
+
+    </com.google.android.material.textview.MaterialTextView>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

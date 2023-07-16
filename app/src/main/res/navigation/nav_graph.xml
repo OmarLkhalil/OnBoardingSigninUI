@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreen">
+
+    <fragment
+        android:id="@+id/registerScreen"
+        android:name="com.mobilebreakero.signupinui.RegisterScreen"
+        android:label="RegisterScreen"
+        tools:layout="@layout/register_fragment">
+        <action
+            android:id="@+id/action_registerScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.mobilebreakero.signupinui.LoginScreen"
+        android:label="LoginScreen"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+        <action
+            android:id="@+id/action_loginScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_loginScreen_to_passwordReset"
+            app:destination="@id/passwordReset" />
+    </fragment>
+    <fragment
+        android:id="@+id/setNewPasswordScreen"
+        android:name="com.mobilebreakero.signupinui.SetNewPasswordScreen"
+        android:label="SetNewPasswordScreen"
+        tools:layout="@layout/new_password">
+        <action
+            android:id="@+id/action_setNewPasswordScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+        <action
+            android:id="@+id/action_setNewPasswordScreen_to_passwordSuccessScreen"
+            app:destination="@id/passwordSuccessScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordSuccessScreen"
+        android:name="com.mobilebreakero.signupinui.PasswordSuccessScreen"
+        android:label="PasswordSuccessScreen"
+        tools:layout="@layout/successpassword">
+        <action
+            android:id="@+id/action_passwordSuccessScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.mobilebreakero.signupinui.HomeScreen"
+        android:label="HomeScreen"
+        tools:layout="@layout/home"
+        >
+        <action
+            android:id="@+id/action_homeScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordReset"
+        android:name="com.mobilebreakero.signupinui.PasswordReset"
+        android:label="PasswordReset" >
+        <action
+            android:id="@+id/action_passwordReset_to_loginScreen"
+            app:destination="@id/loginScreen" />
+        <action
+            android:id="@+id/action_passwordReset_to_phoneVerified"
+            app:destination="@id/phoneVerified" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneVerified"
+        android:name="com.mobilebreakero.signupinui.PhoneVerified"
+        android:label="PhoneVerified" >
+        <action
+            android:id="@+id/action_phoneVerified_to_setNewPasswordScreen"
+            app:destination="@id/setNewPasswordScreen" />
+    </fragment>
+
+
+</navigation>

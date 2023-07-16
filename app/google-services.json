@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "515132975422",
+    "project_id": "onboarding-35ff4",
+    "storage_bucket": "onboarding-35ff4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515132975422:android:73fafe15d6d13efb28e46f",
+        "android_client_info": {
+          "package_name": "com.mobilebreakero.signupinui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515132975422-bph7332evkg2j6l6a3562t27gorfi9fa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobilebreakero.signupinui",
+            "certificate_hash": "05b42c69c95baf0d0dc562cf41532e6887e10253"
+          }
+        },
+        {
+          "client_id": "515132975422-hevpmqaf1sk3rkdp8lbon43o028t4ite.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGeH54iO6UbiviuzFmdSCusBQ4I0Z6euk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515132975422-hevpmqaf1sk3rkdp8lbon43o028t4ite.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
