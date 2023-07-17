@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project Name: Onboarding, Sign In, Sign Up, Reset Password</title>
 </head>
 <body>
   <h1>Project Name: Onboarding, Sign In, Sign Up, Reset Password</h1>
