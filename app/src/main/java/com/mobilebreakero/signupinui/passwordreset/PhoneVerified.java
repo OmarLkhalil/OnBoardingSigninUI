@@ -1,4 +1,4 @@
-package com.mobilebreakero.signupinui;
+package com.mobilebreakero.signupinui.passwordreset;
 
 
 import android.content.ClipData;
@@ -22,6 +22,7 @@ import com.fraggjkee.smsconfirmationview.SmsConfirmationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textview.MaterialTextView;
+import com.mobilebreakero.signupinui.R;
 
 public class PhoneVerified extends Fragment {
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.zhpan.indicator.IndicatorView
+        android:id="@+id/indicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/dp_16"
+        app:vpi_orientation="vertical"
+        app:vpi_slide_mode="worm"
+        app:vpi_slider_checked_color="@color/red"
+        app:vpi_slider_normal_color="@color/grey"
+        app:vpi_slider_radius="@dimen/dp_20"
+        app:vpi_style="circle" />
+
+</RelativeLayout>
+

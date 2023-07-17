@@ -1,4 +1,4 @@
-package com.mobilebreakero.signupinui;
+package com.mobilebreakero.signupinui.passwordreset;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
+
+import com.mobilebreakero.signupinui.R;
 
 public class PasswordSuccessScreen extends Fragment {
 

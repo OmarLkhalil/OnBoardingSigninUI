@@ -1,4 +1,4 @@
-package com.mobilebreakero.signupinui;
+package com.mobilebreakero.signupinui.passwordreset;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.mobilebreakero.signupinui.R;
 
 public class SetNewPasswordScreen extends Fragment {
 

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeScreen">
+    app:startDestination="@id/pagerFragment">
 
     <fragment
         android:id="@+id/registerScreen"
-        android:name="com.mobilebreakero.signupinui.RegisterScreen"
+        android:name="com.mobilebreakero.signupinui.auth.RegisterScreen"
         android:label="RegisterScreen"
         tools:layout="@layout/register_fragment">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginScreen"
-        android:name="com.mobilebreakero.signupinui.LoginScreen"
+        android:name="com.mobilebreakero.signupinui.auth.LoginScreen"
         android:label="LoginScreen"
         tools:layout="@layout/login_fragment">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/setNewPasswordScreen"
-        android:name="com.mobilebreakero.signupinui.SetNewPasswordScreen"
+        android:name="com.mobilebreakero.signupinui.passwordreset.SetNewPasswordScreen"
         android:label="SetNewPasswordScreen"
         tools:layout="@layout/new_password">
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/passwordSuccessScreen"
-        android:name="com.mobilebreakero.signupinui.PasswordSuccessScreen"
+        android:name="com.mobilebreakero.signupinui.passwordreset.PasswordSuccessScreen"
         android:label="PasswordSuccessScreen"
         tools:layout="@layout/successpassword">
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/passwordReset"
-        android:name="com.mobilebreakero.signupinui.PasswordReset"
+        android:name="com.mobilebreakero.signupinui.passwordreset.PasswordReset"
         android:label="PasswordReset" >
         <action
             android:id="@+id/action_passwordReset_to_loginScreen"
@@ -76,12 +76,34 @@
     </fragment>
     <fragment
         android:id="@+id/phoneVerified"
-        android:name="com.mobilebreakero.signupinui.PhoneVerified"
+        android:name="com.mobilebreakero.signupinui.passwordreset.PhoneVerified"
         android:label="PhoneVerified" >
         <action
             android:id="@+id/action_phoneVerified_to_setNewPasswordScreen"
             app:destination="@id/setNewPasswordScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/pagerFragment"
+        android:name="com.mobilebreakero.signupinui.pager.PagerFragment"
+        android:label="PagerFragment"
+
+        >
+    </fragment>
+    <fragment
+        android:id="@+id/firstScreen"
+        android:name="com.mobilebreakero.signupinui.pager.screens.FirstScreen"
+        android:label="FirstScreen" >
+    </fragment>
+    <fragment
+        android:id="@+id/secondScreen"
+        android:name="com.mobilebreakero.signupinui.pager.screens.SecondScreen"
+        android:label="SecondScreen" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/thirdScreen"
+        android:name="com.mobilebreakero.signupinui.pager.screens.ThirdScreen"
+        android:label="ThirdScreen" />
 
 
 </navigation>

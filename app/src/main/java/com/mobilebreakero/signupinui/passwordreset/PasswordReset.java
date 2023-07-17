@@ -1,4 +1,4 @@
-package com.mobilebreakero.signupinui;
+package com.mobilebreakero.signupinui.passwordreset;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +23,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.mobilebreakero.signupinui.R;
 
 import java.util.Random;
 

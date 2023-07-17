@@ -1,4 +1,4 @@
-package com.mobilebreakero.signupinui;
+package com.mobilebreakero.signupinui.auth;
 
 
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import androidx.navigation.Navigation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.mobilebreakero.signupinui.R;
 
 public class LoginScreen extends Fragment {
 
