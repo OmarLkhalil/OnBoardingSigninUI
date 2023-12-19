@@ -29,6 +29,7 @@
         <li>Create a new project on the <a href="https://console.firebase.google.com/">Firebase Console</a>.</li>
         <li>Enable Firebase Authentication and Firestore for the project.</li>
         <li>Download the <code>google-services.json</code> file and place it in the appropriate directory within your project.</li>
+        <li>You will have to add your own twilio auth token - ssd - phone number in local properties to use it.</li>
       </ul>
     </li>
     <li>Build and run the project on your Android emulator or device.</li>
@@ -41,7 +42,7 @@
     <li>Firebase Firestore</li>
     <li>ViewPager2</li>
     <li>Animated Indicators</li>
-    <li>SMS Retriever API</li>
+    <li>SMS Otp using Twilio & okHttp</li>
   </ul>
   <p>Please refer to the project's <code>build.gradle</code> file for the specific versions of the dependencies used.</p>
 
