@@ -16,8 +16,7 @@ import com.mobilebreakero.signupinui.R;
 public class PasswordSuccessScreen extends Fragment {
 
     public PasswordSuccessScreen() {
-        super(R.layout.successpassword
-        );
+        super(R.layout.successpassword);
     }
 
     @Override

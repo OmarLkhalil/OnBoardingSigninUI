@@ -1,8 +1,6 @@
 package com.mobilebreakero.signupinui.passwordreset;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -23,14 +21,27 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.mobilebreakero.signupinui.BuildConfig;
 import com.mobilebreakero.signupinui.R;
 
+import java.io.IOException;
 import java.util.Random;
+
+import okhttp3.Callback;
+import okhttp3.Credentials;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class PasswordReset extends Fragment {
 
+    private static final String TWILIO_ACCOUNT_SID = BuildConfig.TWILIO_ACCOUNT_SID;
+    private static final String TWILIO_AUTH_TOKEN = BuildConfig.TWILIO_AUTH_TOKEN;
+    private static final String TWILIO_PHONE_NUMBER = BuildConfig.TWILIO_PHONE_NUMBER;
+
     private FirebaseFirestore db;
-    private FirebaseAuth auth;
 
     public PasswordReset() {
         super(R.layout.resetpassword);
@@ -42,7 +53,6 @@ public class PasswordReset extends Fragment {
 
         Button sendVerification = view.findViewById(R.id.send_SMS_resetpassword);
 
-        auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
         sendVerification.setOnClickListener(v -> {
@@ -89,7 +99,8 @@ public class PasswordReset extends Fragment {
                 if (snapshot != null && !snapshot.isEmpty()) {
                     DocumentSnapshot document = snapshot.getDocuments().get(0);
                     String phoneNumber = document.getString("phone");
-                    sendSmsToPhoneNumber(phoneNumber);
+                    String message = "Your verification code is: " + new Random().nextInt(999999);
+                    sendSmsToPhoneNumber(phoneNumber, message);
                 } else {
                     Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show();
                 }
@@ -99,16 +110,37 @@ public class PasswordReset extends Fragment {
         });
     }
 
-    private void sendSmsToPhoneNumber(String phoneNumber) {
-        Random random = new Random();
+    public static void sendSmsToPhoneNumber(String phoneNumber, String messageBody) {
 
-        int verificationCode = random.nextInt(900000) + 100000;
-        Log.e("sent", String.valueOf(verificationCode));
+        OkHttpClient client = new OkHttpClient();
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
-        prefs.edit().putString("savedPhoneNumber", String.valueOf(verificationCode)).apply();
+        RequestBody requestBody = new FormBody.Builder()
+                .add("To", phoneNumber)
+                .add("From", TWILIO_PHONE_NUMBER)
+                .add("Body", messageBody)
+                .build();
 
-//        SmsManager smsManager = SmsManager.getDefault();
-//        smsManager.sendTextMessage(phoneNumber, null, "Your password reset code: " + verificationCode, null, null);
+        Request request = new Request.Builder()
+                .url("https://api.twilio.com/2010-04-01/Accounts/" + TWILIO_ACCOUNT_SID + "/Messages.json")
+                .post(requestBody)
+                .addHeader("Authorization", Credentials.basic(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN))
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onResponse(@NonNull okhttp3.Call call, @NonNull Response response) throws IOException {
+                assert response.body() != null;
+                Log.d("TwilioSMS", "Message SID: " + response.body().string());
+
+            }
+
+            @Override
+            public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
+                Log.e("TwilioSMS", "Error sending SMS: " + e.getMessage());
+
+            }
+
+        });
     }
 }
+

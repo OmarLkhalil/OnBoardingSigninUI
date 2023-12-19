@@ -8,6 +8,11 @@ android {
     namespace 'com.mobilebreakero.signupinui'
     compileSdk 33
 
+    // Load Twilio properties from local.properties file
+    def twilioPropertiesFile = rootProject.file("local.properties")
+    def twilioProperties = new Properties()
+    twilioProperties.load(new FileInputStream(twilioPropertiesFile))
+
     defaultConfig {
         applicationId "com.mobilebreakero.signupinui"
         minSdk 21
@@ -16,13 +21,21 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Set Twilio properties from local.properties file
+        buildConfigField "String", "TWILIO_ACCOUNT_SID", "\"${twilioProperties.getProperty("TWILIO_ACCOUNT_SID")}\""
+        buildConfigField "String", "TWILIO_AUTH_TOKEN", "\"${twilioProperties.getProperty("TWILIO_AUTH_TOKEN")}\""
+        buildConfigField "String", "TWILIO_PHONE_NUMBER", "\"${twilioProperties.getProperty("TWILIO_PHONE_NUMBER")}\""
     }
 
     configurations {
         implementation.exclude module: 'kotlin-stdlib-jdk7'
         implementation.exclude module: 'kotlin-stdlib-jdk8'
-    }
 
+    }
+    buildFeatures {
+        buildConfig true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -32,6 +45,15 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
     }
 }
 
@@ -53,4 +75,8 @@ dependencies {
     implementation(platform('com.google.firebase:firebase-bom:32.2.0'))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+
+    implementation "com.twilio.sdk:twilio:9.2.3"
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 }
