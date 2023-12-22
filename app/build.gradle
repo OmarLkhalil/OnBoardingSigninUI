@@ -69,7 +69,7 @@ dependencies {
     implementation 'com.github.zhpanvip:viewpagerindicator:1.2.3'
 
     def nav_version = "2.6.0"
-    implementation "com.github.fraggjkee:sms-confirmation-view:1.7.1"
+    implementation "com.github.fraggjkee:sms-confirmation-view:1.8.1"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation(platform('com.google.firebase:firebase-bom:32.2.0'))
