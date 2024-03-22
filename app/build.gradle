@@ -72,7 +72,7 @@ dependencies {
     implementation "com.github.fraggjkee:sms-confirmation-view:1.7.1"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
-    implementation(platform('com.google.firebase:firebase-bom:32.2.0'))
+    implementation(platform('com.google.firebase:firebase-bom:32.8.0'))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
 
